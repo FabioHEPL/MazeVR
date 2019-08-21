@@ -6,55 +6,42 @@ using UnityEngine;
 public class EnnemiDrop : MonoBehaviour
 {
     public LayerMask ennemiSpawn;
-
-    public GameObject ennemi;
-
-    public GameObject ennemiPositionOnMouse;
-
-    [Header("Debug")]
-    public Vector3 positionMouse;
-    public float amplificator = 3;
+    public LayerMask ennemiLayer;
+    public GameObject ennemiPrefab;
+    public GameObject enemi;
+    private bool mouseHold = false;
 
     void Update()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1) && !mouseHold)
         {
-            RaycastHit rayHit;
+            enemi = Instantiate(ennemiPrefab, GetWorldPointFromMouse(), Quaternion.identity);
+            mouseHold = true;
+        }
 
-            if (ennemiPositionOnMouse == null)
-            {
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out rayHit, Mathf.Infinity, ennemiSpawn))
-                {
-                    ennemiPositionOnMouse = Instantiate(ennemi, transform.position = rayHit.collider.transform.position, Quaternion.identity);
-                }
-            }
-            positionMouse = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            MousePosition(positionMouse);
+        if (mouseHold)
+        {
+            enemi.transform.position = GetWorldPointFromMouse();
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            RaycastHit rayHit;
-
-            if (ennemiPositionOnMouse == null)
-            {
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out rayHit, Mathf.Infinity, ennemiSpawn))
-                {
-                    ennemiPositionOnMouse.transform.position = rayHit.collider.transform.position;
-                }
-            }
-            ennemiPositionOnMouse = null;
+            mouseHold = false;
         }
     }
 
-    private void MousePosition(Vector3 positionMouse)
+    private Vector3 GetWorldPointFromMouse()
     {
-        Vector3 mousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        RaycastHit rayHit;
 
-        if (positionMouse != mousePosition)
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out rayHit, Mathf.Infinity, ennemiSpawn))
         {
-            Debug.Log("bouge");
-            ennemiPositionOnMouse.transform.position = ennemiPositionOnMouse.transform.position.normalized + (new Vector3(mousePosition.x, 0, mousePosition.y));
+            Debug.Log(rayHit);
+            return rayHit.point;
+        }
+        else
+        {
+            return Vector3.zero;
         }
     }
 }

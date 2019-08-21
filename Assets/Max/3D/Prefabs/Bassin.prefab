@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 431510638310927290}
   - component: {fileID: 8693651647321870732}
   - component: {fileID: 3141972639297826165}
+  - component: {fileID: 6214793344558199779}
   m_Layer: 0
   m_Name: Bassin
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6214793344558199779
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721751731978492329}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.82000005, y: 0.0066685867, z: 0.82000005}
+  m_Center: {x: 0.000000076293944, y: 0.0033342743, z: 0.000000038146972}

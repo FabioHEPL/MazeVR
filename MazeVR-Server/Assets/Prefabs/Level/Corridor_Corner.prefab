@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6366887986725144929}
   - component: {fileID: 5357692732105471929}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6995277374440689983}
   - component: {fileID: 5501875591875434079}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 776805178587888794}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 629902929124334306}
-  m_Layer: 0
+  - component: {fileID: 7562478173639946232}
+  m_Layer: 10
   m_Name: Corridor_Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +154,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7562478173639946232
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4532456003001247985}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 3.2267475, z: 4}
+  m_Center: {x: 0, y: 1.6048751, z: -2.2444239e-15}
 --- !u!1 &7131019082260571195
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4162231383680307827}
   - component: {fileID: 1444894739582888530}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: C
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8693651647321870732}
   - component: {fileID: 3141972639297826165}
   - component: {fileID: 6214793344558199779}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bassin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

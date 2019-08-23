@@ -9,3 +9,7 @@
 Pour l'instant nous travaillons que sur la partie serveur, c'est-à-dire que tous nos assets (modèles 3D, scripts, etc.) se trouveront dans le projet Unity "MazeVR-Server".
 
 Une fois que la partie réseau sera integrée, nous commencerons à faire la distinction entre les assets client et serveur. Les assets client iront dans le dossier "MazeVR-Client" et les assets serveur iront dans le dossier "MazeVR-Server".
+
+## a
+
+git.ignore pour projet settings

@@ -20,5 +20,7 @@ public class Swap : Operation
         Vector3 firstPosition = first.transform.position;
         first.transform.position = second.transform.position;
         second.transform.position = firstPosition;
+
+        base.OnExecuted();
     }
 }

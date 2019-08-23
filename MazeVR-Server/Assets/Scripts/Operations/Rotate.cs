@@ -16,5 +16,7 @@ public class Rotate : Operation
             return;
 
         gameObjects[0].transform.Rotate(new Vector3(0f, angle, 0f));
+
+        base.OnExecuted();
     }
 }

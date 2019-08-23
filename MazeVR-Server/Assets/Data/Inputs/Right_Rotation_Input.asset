@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5748c126c7f1d479ac6f97c334f4c4, type: 3}
   m_Name: Right_Rotation_Input
   m_EditorClassIdentifier: 
-  key: 114
+  key: 101
   operation: {fileID: 11400000, guid: a6009d6e28f9bbc49a2235e532fec6ee, type: 2}

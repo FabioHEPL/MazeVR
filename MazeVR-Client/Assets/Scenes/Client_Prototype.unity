@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &10958756 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3350144086110877109, guid: 5ee0a71e8413ca04089a43bc7d70e2e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 3350144085156022402}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &478563921
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  avatar: {fileID: 10958756}
+  avatar: {fileID: 2074480373}
   tickrate: 30
   updating: 0
   update: 1
@@ -423,8 +417,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6715034323098532686, guid: f107a515befe5c444888df65e2e18c1a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f107a515befe5c444888df65e2e18c1a, type: 3}
+--- !u!1 &2074480373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3350144085969817831, guid: 5ee0a71e8413ca04089a43bc7d70e2e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 3350144085156022402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2109823269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6715034323098532672, guid: f107a515befe5c444888df65e2e18c1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1802368735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2109823270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109823269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436bfd8cc7b457b479b664a220e671c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
 --- !u!1001 &2119406357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -590,6 +610,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 924044343079097357, guid: 8afa4f1d378d24d4db42ade838935482,
+        type: 3}
+      propertyPath: outIP
+      value: 192.168.137.40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8afa4f1d378d24d4db42ade838935482, type: 3}

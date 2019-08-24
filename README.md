@@ -10,6 +10,6 @@ Pour l'instant nous travaillons que sur la partie serveur, c'est-à-dire que tou
 
 Une fois que la partie réseau sera integrée, nous commencerons à faire la distinction entre les assets client et serveur. Les assets client iront dans le dossier "MazeVR-Client" et les assets serveur iront dans le dossier "MazeVR-Server".
 
-## a
+## Rappels
 
-git.ignore pour projet settings
+- [ ] Ajouter le dossier "ProjectSettings" dans le git.ignore pour tous les membres de l'équipe, pour éviter d'avoir des conflits au niveau des paramètres du projet Unity

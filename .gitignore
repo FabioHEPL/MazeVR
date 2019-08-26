@@ -35,3 +35,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 MazeVR-Server/Assets/_TerrainAutoUpgrade/
+MazeVR-Server/Assets/ProjectSettings/
+MazeVR-Client/Assets/ProjectSettings/
+

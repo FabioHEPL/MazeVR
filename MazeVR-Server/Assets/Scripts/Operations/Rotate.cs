@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Rotate", menuName = "Operations/Rotate")]
 public class Rotate : Operation
 {
     public Selection selection;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Swap", menuName = "Operations/Swap")]
 public class Swap : Operation
 {
     public Selection selection;

@@ -13,3 +13,4 @@ Une fois que la partie réseau sera integrée, nous commencerons à faire la dis
 ## Rappels
 
 - [x] Ajouter le dossier "ProjectSettings" au git.ignore pour tout membre de l'équipe, pour éviter d'avoir des conflits au niveau des paramètres du projet Unity.
+- [x] Ajouter une exception au git.ignore pour le dossier MazeVR-Shared : ne pas ignorer le projet Visual Studio ([aide](https://stackoverflow.com/questions/3203228/git-ignore-exception)).

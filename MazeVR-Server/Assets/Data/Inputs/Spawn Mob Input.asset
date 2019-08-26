@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8daab379875ad42bef5d8ebc80d56f, type: 3}
   m_Name: Spawn Mob Input
   m_EditorClassIdentifier: 
-  key: 0
+  key: 324
   operation: {fileID: 0}
-  secondKey: 0
+  secondKey: 324
+  dragging: 0

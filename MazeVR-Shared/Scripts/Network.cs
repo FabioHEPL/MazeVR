@@ -12,6 +12,9 @@ namespace MazeVR
         private NetworkEntity[] entities;
 
         [SerializeField]
+        private NetworkOperation[] operations;
+
+        [SerializeField]
         private OSC osc;
 
         private void Awake()
@@ -74,6 +77,12 @@ namespace MazeVR
                 entity.Synchronize(message);
             }
         }
+
+
+        private void Synchronise_Operation()
+        {
+            // operation.Execute(message);
+        } 
     }
 
 }

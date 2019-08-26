@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Pathfinding;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,15 +31,15 @@ public class SpawnEnemy : MonoBehaviour
                 if (hit.collider.gameObject.Equals(button))
                 {
                     enemy = Instantiate(enemyPrefab, hit.point, Quaternion.identity);
+                    
                     dragging = true;
                 }
             }            
-        }
-
-        
+        }        
 
         if (Input.GetMouseButtonUp(1))
         {
+            enemy.GetComponent<AIDestinationSetter>().target = GameObject.FindGameObjectWithTag("Player").transform;
             dragging = false;
         }
 
@@ -49,7 +50,6 @@ public class SpawnEnemy : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, spawnAreaLayerMask))
             {
-                Debug.Log(LayerMask.LayerToName(hit.collider.gameObject.layer));
                 if (hit.collider.gameObject.layer != LayerMask.NameToLayer(toAvoidLayerName))
                 {
                     enemy.transform.position = hit.point;

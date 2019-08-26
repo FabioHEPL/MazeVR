@@ -8,11 +8,18 @@ public class SpawnMobInput : CustomInput
     public KeyCode secondKey;
 
     [SerializeField]
-
+    private bool dragging = false;
 
     public override void Process()
     {
         if (Input.GetKeyDown(key))
+        {
             operation.Execute();
+        }
+
+        if (Input.GetKeyUp(secondKey))
+        {
+            operation.Execute();
+        }
     }
 }

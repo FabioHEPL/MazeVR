@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Select Operation", menuName = "Operations/Select")]
 public class Select : Operation
 {
     [SerializeField]

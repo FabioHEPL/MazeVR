@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Highlight", menuName = "Effects/Highlight")]
 public class Highlight : ScriptableObject
 {    
     [SerializeField]

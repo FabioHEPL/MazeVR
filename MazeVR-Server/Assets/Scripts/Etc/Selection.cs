@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Selection", menuName = "Etc/Create Selection")]
 public class Selection : ScriptableObject
 {
     [SerializeField]

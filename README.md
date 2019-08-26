@@ -12,4 +12,4 @@ Une fois que la partie réseau sera integrée, nous commencerons à faire la dis
 
 ## Rappels
 
-- [ ] Ajouter le dossier "ProjectSettings" au git.ignore pour tout membre de l'équipe, pour éviter d'avoir des conflits au niveau des paramètres du projet Unity.
+- [x] Ajouter le dossier "ProjectSettings" au git.ignore pour tout membre de l'équipe, pour éviter d'avoir des conflits au niveau des paramètres du projet Unity.

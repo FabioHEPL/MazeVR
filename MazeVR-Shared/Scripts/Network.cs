@@ -9,49 +9,33 @@ namespace MazeVR
     public class Network : MonoBehaviour
     {
         [SerializeField]
-        private NetworkEntity[] entities;
+        private List<LocalEntity> localEntities;
 
         [SerializeField]
-        private NetworkOperation[] operations;
+        private List<RemoteEntity> remoteEntities;
 
-        [SerializeField]
-        private OSC osc;
+        //[SerializeField]
+        private OSC osc;     
 
-        private void Awake()
+        public virtual void Register_Remote(RemoteEntity entity)
         {
-            this.entities = GameObject.FindObjectsOfType<NetworkEntity>();
-            this.osc = this.GetComponent<OSC>();
+            this.remoteEntities.Add(entity);            
         }
 
-        private void Start()
+        public virtual void Register_Local(LocalEntity entity)
         {
-            osc.SetAllMessageHandler(Synchronise_Entity);
+            localEntities.Add(entity);
+            entity.Updated += Entity_Updated;
         }
 
-        private void OnEnable()
+        private void Entity_Updated(object sender, LocalEntityUpdatedArgs args)
         {
-            foreach (NetworkEntity entity in entities)
-            {
-                entity.Updated += Entity_Updated;
-            }
-        }
-
-        private void OnDisable()
-        {
-            foreach (NetworkEntity entity in entities)
-            {
-                entity.Updated -= Entity_Updated;
-            }
-        }
-
-        private void Entity_Updated(object sender, NetworkEntityUpdatedArgs args)
-        {
-            NetworkEntity entity = (NetworkEntity)sender;
+            LocalEntity entity = (LocalEntity)sender;
             OscMessage message = BuildMessage(entity.ID, args);
             this.osc.Send(message);
         }
 
-        private static OscMessage BuildMessage(int entityId, NetworkEntityUpdatedArgs args)
+        private static OscMessage BuildMessage(int entityId, LocalEntityUpdatedArgs args)
         {
             OscMessage message = new OscMessage();
             message.address = String.Format($"/{args.Label}");
@@ -66,7 +50,7 @@ namespace MazeVR
         private void Synchronise_Entity(OscMessage message)
         {
             int entityId = message.GetInt(0);
-            NetworkEntity entity = entities.FirstOrDefault(e => e.ID == entityId);
+            RemoteEntity entity = remoteEntities.FirstOrDefault(e => e.ID == entityId);
 
             if (entity == null)
             {
@@ -78,11 +62,33 @@ namespace MazeVR
             }
         }
 
-
-        private void Synchronise_Operation()
+        private void Awake()
         {
-            // operation.Execute(message);
-        } 
+            this.localEntities = GameObject.FindObjectsOfType<LocalEntity>().ToList();
+            this.remoteEntities = GameObject.FindObjectsOfType<RemoteEntity>().ToList();
+            this.osc = this.GetComponent<OSC>();
+        }
+
+        private void Start()
+        {
+            osc.SetAllMessageHandler(Synchronise_Entity);
+        }
+
+        private void OnEnable()
+        {
+            foreach (LocalEntity entity in this.localEntities)
+            {
+                entity.Updated += Entity_Updated;
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach (LocalEntity entity in this.localEntities)
+            {
+                entity.Updated -= Entity_Updated;
+            }
+        }
     }
 
 }

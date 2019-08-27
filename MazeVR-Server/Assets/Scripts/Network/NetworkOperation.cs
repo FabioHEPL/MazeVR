@@ -6,10 +6,6 @@ public abstract class NetworkOperation : Operation
 {
     public abstract int ID { get; }
 
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {

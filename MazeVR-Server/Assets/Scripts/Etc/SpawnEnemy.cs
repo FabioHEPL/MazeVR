@@ -1,11 +1,12 @@
-﻿using Pathfinding;
+﻿using MazeVR;
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] MobFactory mobFactory;
     [SerializeField] GameObject button;
 
     [SerializeField] LayerMask spawnAreaLayerMask;
@@ -20,7 +21,7 @@ public class SpawnEnemy : MonoBehaviour
     void Update()
     {      
         // inputs
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && !dragging)
         {
             //mobSpawner2 = mobSpawner2.GetComponent<>();
        
@@ -30,14 +31,14 @@ public class SpawnEnemy : MonoBehaviour
             {
                 if (hit.collider.gameObject.Equals(button))
                 {
-                    enemy = Instantiate(enemyPrefab, hit.point, Quaternion.identity);
+                    enemy = mobFactory.CreateMob(hit.point);
                     
                     dragging = true;
                 }
             }            
         }        
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) && dragging)
         {
             enemy.GetComponent<AIDestinationSetter>().target = GameObject.FindGameObjectWithTag("Player").transform;
             dragging = false;

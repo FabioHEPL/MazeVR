@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MazeVR</RootNamespace>
     <AssemblyName>MazeVR-Shared</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Scripts\LocalEntityUpdatedArgs.cs" />
+    <Compile Include="Scripts\LocalFactory.cs" />
+    <Compile Include="Scripts\LocalMob.cs" />
+    <Compile Include="Scripts\MobCreatedArgs.cs" />
+    <Compile Include="Scripts\MobFactory.cs" />
+    <Compile Include="Scripts\RemoteEntity.cs" />
+    <Compile Include="Scripts\LocalEntity.cs" />
     <Compile Include="Scripts\Network.cs" />
     <Compile Include="Scripts\NetworkEntity.cs" />
     <Compile Include="Scripts\NetworkEntityUpdatedArgs.cs" />
@@ -55,6 +63,10 @@
     <Compile Include="Scripts\OSC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\Player_Demo.cs" />
+    <Compile Include="Scripts\RemoteMobFactory.cs" />
+    <Compile Include="Scripts\LocalPlayer.cs" />
+    <Compile Include="Scripts\RemoteMob.cs" />
+    <Compile Include="Scripts\RemotePlayer.cs" />
     <Compile Include="Scripts\SpawnMobRemote.cs" />
   </ItemGroup>
   <ItemGroup>

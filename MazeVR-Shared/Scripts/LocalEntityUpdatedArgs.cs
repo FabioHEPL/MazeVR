@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MazeVR
 {
-    public class NetworkEntityUpdatedArgs : EventArgs
+    public class LocalEntityUpdatedArgs : EventArgs
     {
         private object[] values;
         private string label;
@@ -13,7 +14,7 @@ namespace MazeVR
         public string Label => label;
         public object[] Values => values;
 
-        public NetworkEntityUpdatedArgs(string label, params object[] values)
+        public LocalEntityUpdatedArgs(string label, params object[] values)
         {
             this.label = label;
             this.values = values;

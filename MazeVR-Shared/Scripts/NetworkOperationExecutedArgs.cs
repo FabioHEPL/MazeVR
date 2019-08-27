@@ -1,6 +1,8 @@
-﻿namespace MazeVR
+﻿using System;
+
+namespace MazeVR
 {
-    public class NetworkOperationExecutedArgs
+    public class NetworkOperationExecutedArgs : EventArgs
     {
 
     }

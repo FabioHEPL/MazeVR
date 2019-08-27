@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6270436360529953975
+--- !u!1 &6617984447198625120
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6270436360529953973}
-  - component: {fileID: 6270436360529953974}
+  - component: {fileID: 6617984447198625122}
+  - component: {fileID: 924044343079097357}
+  - component: {fileID: 5553677660245458738}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -17,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6270436360529953973
+--- !u!4 &6617984447198625122
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6270436360529953975}
+  m_GameObject: {fileID: 6617984447198625120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.0071983, y: -9.341206, z: 1.4623222}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,18 +32,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6270436360529953974
+--- !u!114 &924044343079097357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6270436360529953975}
+  m_GameObject: {fileID: 6617984447198625120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -356394668, guid: 88f0bac79747b464d83728f86cc675ba, type: 3}
+  m_Script: {fileID: -1946310883, guid: 88f0bac79747b464d83728f86cc675ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inPort: 5555
   outIP: 127.0.0.1
   outPort: 7777
+--- !u!114 &5553677660245458738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6617984447198625120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1154571691, guid: 88f0bac79747b464d83728f86cc675ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entities: []
+  osc: {fileID: 0}

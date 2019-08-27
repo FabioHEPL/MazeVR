@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Rotate_Left
   m_EditorClassIdentifier: 
   selection: {fileID: 11400000, guid: edc89b1d62d61e341babaaf6a13c297c, type: 2}
-  angle: -45
+  angle: -90

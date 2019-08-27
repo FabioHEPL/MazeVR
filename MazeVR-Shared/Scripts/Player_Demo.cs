@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MazeVR_Shared
+namespace MazeVR
 {
     public class Player_Demo : MonoBehaviour
     {

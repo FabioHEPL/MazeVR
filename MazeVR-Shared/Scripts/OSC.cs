@@ -115,10 +115,8 @@ using UnityEngine;
 /// 
 /// 
 
-namespace MazeVR_Shared
+namespace MazeVR
 {
-
-
     /// <summary>
     /// UdpPacket provides packetIO over UDP
     /// </summary>

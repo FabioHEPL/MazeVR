@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using MazeVR_Shared;
+using MazeVR;
 
 public class ReceiveFFT : MonoBehaviour {
 

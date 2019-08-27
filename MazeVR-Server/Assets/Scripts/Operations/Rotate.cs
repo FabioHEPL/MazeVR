@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Rotate", menuName = "Operations/Rotate")]
 public class Rotate : Operation
 {
     public Selection selection;
@@ -16,5 +16,7 @@ public class Rotate : Operation
             return;
 
         gameObjects[0].transform.Rotate(new Vector3(0f, angle, 0f));
+
+        base.OnExecuted();
     }
 }

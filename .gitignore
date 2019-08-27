@@ -34,7 +34,11 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# MazeVR project
 MazeVR-Server/Assets/_TerrainAutoUpgrade/
 MazeVR-Server/Assets/ProjectSettings/
 MazeVR-Client/Assets/ProjectSettings/
+!MazeVR-Shared/MazeVR-Shared.csproj
+!MazeVR-Shared/MazeVR-Shared.sln
 

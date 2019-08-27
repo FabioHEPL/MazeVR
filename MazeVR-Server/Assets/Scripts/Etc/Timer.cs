@@ -11,43 +11,56 @@ public class Timer : MonoBehaviour
     public int timeMinute = 15;
     float timeSecond = 60;
 
+    bool timerIsFinich;
     int timeSecondDisplay;
+
+    private void Start()
+    {
+        timerIsFinich = false;
+    }
 
     void Update()
     {
         timeSecond -= Time.deltaTime;
         timeSecondDisplay = Mathf.RoundToInt(timeSecond);
 
-        if (timeSecondDisplay < 10)
+        if (timeMinute <= 0 && timeSecond <= 0)
         {
-            timerText.text = ("0" + timeMinute + " : " + "0" + timeSecondDisplay);
-        }
-        else
-        {
-            timerText.text = (timeMinute + " : " + timeSecondDisplay);
+            timerIsFinich = true;
+            timerText.text = ("00 : 00");
+            winCondition.SetActive(true);
         }
 
-        if (timeSecond <= 0)
+        if (timerIsFinich == false)
         {
-            if (timeSecondDisplay != 0)
+            if (timeMinute != 0 && timeSecondDisplay == 0)
             {
                 timeMinute--;
+                timeSecond = 60;
             }
 
-            timerText.text = (timeMinute + " : " + "00");
-            timeSecond = 60;
-        }
-
-        if (timeMinute < 0 && timeSecondDisplay == 0)
-        {
-            //vérifier la condision de vitoire/defaite et l'afficher
-            if (timeMinute == -1)
+            if (timeMinute != 0)
             {
-                timerText.text = ("00 : 00");
+                if (timeMinute != 0 && timeSecondDisplay < 10)
+                {
+                    timerText.text = (timeMinute + " : " + "0" + timeSecondDisplay);
+                    return;
+                }
+
+                timerText.text = (timeMinute + " : " + timeSecondDisplay);
             }
 
-            winCondition.SetActive(true);
-            Time.timeScale = 0;
+            if (timeMinute == 0 || timeMinute < 10)
+            {
+                if (timeMinute < 10 && timeSecondDisplay < 10)
+                {
+                    timerText.text = ("0" + timeMinute + " : " + "0" + timeSecondDisplay);
+                    return;
+                }
+
+                timerText.text = ("0" + timeMinute + " : " + timeSecondDisplay);
+            }
         }
+
     }
 }

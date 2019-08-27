@@ -26,6 +26,13 @@ namespace MazeVR
 
         public override void Synchronize(OscMessage message)
         {
+            // NetworkComponent = select Component ("message.address")
+
+            // networkComponent.Update(message);
+
+
+
+
             if (message.address.Equals("/Created"))
             {
 

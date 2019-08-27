@@ -13,7 +13,11 @@ namespace MazeVR
         private GameObject avatar;
 
         [SerializeField]
+        private Vulnerable avatar;
+
+        [SerializeField]
         private int id = 10;
+
 
         public override int ID => this.id;
 

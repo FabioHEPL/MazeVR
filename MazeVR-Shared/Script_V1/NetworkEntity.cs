@@ -16,7 +16,6 @@ namespace MazeVR
         protected virtual void OnUpdated(NetworkEntityUpdatedArgs args)
         {
             Updated?.Invoke(this, args);
-            
         }
     }
 }

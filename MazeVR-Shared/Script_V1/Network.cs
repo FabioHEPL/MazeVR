@@ -9,24 +9,33 @@ namespace MazeVR
     public class Network : MonoBehaviour
     {
         [SerializeField]
-        private List<NetworkEntity> entities;       
+        private List<LocalEntity> localEntities;
 
+        [SerializeField]
+        private List<RemoteEntity> remoteEntities;
+
+        //[SerializeField]
         private OSC osc;     
 
-        public virtual void Register(NetworkEntity entity)
+        public virtual void Register_Remote(RemoteEntity entity)
         {
-            entities.Add(entity);
+            this.remoteEntities.Add(entity);            
+        }
+
+        public virtual void Register_Local(LocalEntity entity)
+        {
+            localEntities.Add(entity);
             entity.Updated += Entity_Updated;
         }
 
-        private void Entity_Updated(object sender, NetworkEntityUpdatedArgs args)
+        private void Entity_Updated(object sender, LocalEntityUpdatedArgs args)
         {
-            NetworkEntity entity = (NetworkEntity)sender;
+            LocalEntity entity = (LocalEntity)sender;
             OscMessage message = BuildMessage(entity.ID, args);
             this.osc.Send(message);
         }
 
-        private static OscMessage BuildMessage(int entityId, NetworkEntityUpdatedArgs args)
+        private static OscMessage BuildMessage(int entityId, LocalEntityUpdatedArgs args)
         {
             OscMessage message = new OscMessage();
             message.address = String.Format($"/{args.Label}");
@@ -41,7 +50,7 @@ namespace MazeVR
         private void Synchronise_Entity(OscMessage message)
         {
             int entityId = message.GetInt(0);
-            NetworkEntity entity = entities.FirstOrDefault(e => e.ID == entityId);
+            RemoteEntity entity = remoteEntities.FirstOrDefault(e => e.ID == entityId);
 
             if (entity == null)
             {
@@ -54,8 +63,9 @@ namespace MazeVR
         }
 
         private void Awake()
-        {            
-            this.entities = GameObject.FindObjectsOfType<NetworkEntity>().ToList();
+        {
+            this.localEntities = GameObject.FindObjectsOfType<LocalEntity>().ToList();
+            this.remoteEntities = GameObject.FindObjectsOfType<RemoteEntity>().ToList();
             this.osc = this.GetComponent<OSC>();
         }
 
@@ -66,7 +76,7 @@ namespace MazeVR
 
         private void OnEnable()
         {
-            foreach (NetworkEntity entity in this.entities)
+            foreach (LocalEntity entity in this.localEntities)
             {
                 entity.Updated += Entity_Updated;
             }
@@ -74,7 +84,7 @@ namespace MazeVR
 
         private void OnDisable()
         {
-            foreach (NetworkEntity entity in this.entities)
+            foreach (LocalEntity entity in this.localEntities)
             {
                 entity.Updated -= Entity_Updated;
             }

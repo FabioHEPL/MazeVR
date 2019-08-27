@@ -260,6 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434991519371516900}
   - component: {fileID: 2771923549243767938}
+  - component: {fileID: 8000999385816054728}
   m_Layer: 0
   m_Name: Mob Debug
   m_TagString: Untagged
@@ -297,6 +298,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar: {fileID: 2716027882093718007}
   id: 10
+--- !u!65 &8000999385816054728
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716027882093718007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6574936, y: 1.7171478, z: 1.5523188}
+  m_Center: {x: 0.0048179626, y: 0.71164703, z: -0.2761594}
 --- !u!1 &2833495621882005681
 GameObject:
   m_ObjectHideFlags: 0

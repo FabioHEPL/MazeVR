@@ -259,7 +259,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1434991519371516900}
-  - component: {fileID: 2771923549243767938}
   - component: {fileID: 8000999385816054728}
   m_Layer: 0
   m_Name: Mob Debug
@@ -284,20 +283,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2771923549243767938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2716027882093718007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 616878136, guid: 88f0bac79747b464d83728f86cc675ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  avatar: {fileID: 2716027882093718007}
-  id: 10
 --- !u!65 &8000999385816054728
 BoxCollider:
   m_ObjectHideFlags: 0

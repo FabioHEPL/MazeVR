@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
 public class IndexPrefabCreator : MonoBehaviour
@@ -36,10 +40,15 @@ public class IndexPrefabCreator : MonoBehaviour
     }
     public void CreateRandomAtTargetPoint(int x, int y)
     {
+#if UNITY_EDITOR
+
         MoveCursor(x, y);
         Quaternion rot = Quaternion.Euler(0, 90 * UnityEngine.Random.Range(0, rotationDirection + 1), 0);
-        m_lastCreated  =(GameObject)  GameObject.Instantiate(GetRandomPrefabToCreate(), m_debugPoint.position, rot);
+        m_lastCreated = (GameObject)PrefabUtility.InstantiatePrefab(GetRandomPrefabToCreate());
+        m_lastCreated.transform.position = m_debugPoint.position;
+        m_lastCreated.transform.rotation = Quaternion.identity;
         m_lastCreated.transform.parent = m_parentWhereToCreate;
+#endif
     }
 
     private UnityEngine.Object GetRandomPrefabToCreate()

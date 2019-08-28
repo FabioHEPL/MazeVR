@@ -5,33 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Highlight", menuName = "Effects/Highlight")]
-public class Highlight : ScriptableObject
-{    
-    [SerializeField]
-    private Material material;
-
-    public Material Material => material;
-
-    private Material initial;
-    private Renderer renderer;
-
-    public void Apply(GameObject gameObject)
+namespace MazeVR.Server
+{
+    [CreateAssetMenu(fileName = "Highlight", menuName = "Effects/Highlight")]
+    public class Highlight : ScriptableObject
     {
-        renderer = gameObject.transform.GetChild(0).GetComponent<Renderer>();
-        initial = renderer.material;
-        renderer.material = material;
-    }
+        [SerializeField]
+        private Material material;
 
-    public void Undo()
-    {
-        renderer.material = initial;
-    }
+        public Material Material => material;
 
-    public void Initialise(Material material)
-    {
-        this.material = material;
-    }
+        private Material initial;
+        private Renderer renderer;
 
+        public void Apply(GameObject gameObject)
+        {
+            renderer = gameObject.transform.GetChild(0).GetComponent<Renderer>();
+            initial = renderer.material;
+            renderer.material = material;
+        }
+
+        public void Undo()
+        {
+            renderer.material = initial;
+        }
+
+        public void Initialise(Material material)
+        {
+            this.material = material;
+        }
+    }
 }
 

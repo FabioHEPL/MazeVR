@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiTakeDamage : MonoBehaviour
+namespace MazeVR.Server
 {
-    [SerializeField] int damage = 1;
-
-    EnemiLifePoint enemiLifePoint;
-
-    private void OnTriggerEnter(Collider other)
+    public class EnemiTakeDamage : MonoBehaviour
     {
-        if (other.gameObject.tag == "Ennemi")
+        [SerializeField] int damage = 1;
+
+        EnemiLifePoint enemiLifePoint;
+
+        private void OnTriggerEnter(Collider other)
         {
-            enemiLifePoint = other.gameObject.GetComponent<EnemiLifePoint>();
-            enemiLifePoint.LifePoint = enemiLifePoint.LifePoint - damage;
+            if (other.gameObject.tag == "Ennemi")
+            {
+                enemiLifePoint = other.gameObject.GetComponent<EnemiLifePoint>();
+                enemiLifePoint.LifePoint = enemiLifePoint.LifePoint - damage;
+            }
         }
     }
 }

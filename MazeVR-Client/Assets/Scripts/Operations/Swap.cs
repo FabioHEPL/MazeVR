@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class Swap : Operation
+namespace MazeVR.Client
 {
-    public Selection selection;
-
-    public override void Execute()
+    [CreateAssetMenu]
+    public class Swap : Operation
     {
-        GameObject[] gameObjects = selection.Elements;
+        public Selection selection;
 
-        if (gameObjects.Length != 2)
-            return;
+        public override void Execute()
+        {
+            GameObject[] gameObjects = selection.Elements;
 
-        GameObject first = gameObjects[0];
-        GameObject second = gameObjects[1];
+            if (gameObjects.Length != 2)
+                return;
 
-        Vector3 firstPosition = first.transform.position;
-        first.transform.position = second.transform.position;
-        second.transform.position = firstPosition;
+            GameObject first = gameObjects[0];
+            GameObject second = gameObjects[1];
+
+            Vector3 firstPosition = first.transform.position;
+            first.transform.position = second.transform.position;
+            second.transform.position = firstPosition;
+        }
     }
 }

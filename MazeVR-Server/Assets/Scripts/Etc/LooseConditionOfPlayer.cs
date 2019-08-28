@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LooseConditionOfPlayer : MonoBehaviour
+namespace MazeVR.Server
 {
-    [SerializeField] int lifePointCharater = 1;
-    [SerializeField] GameObject playerLose;
-
-    void Update()
+    public class LooseConditionOfPlayer : MonoBehaviour
     {
-        if (lifePointCharater == 0)
-        {
-            playerLose.SetActive(true);
-        }
+        [SerializeField] int lifePointCharater = 1;
+        [SerializeField] GameObject playerLose;
 
-        if (lifePointCharater < 0)
+        void Update()
         {
-            lifePointCharater = 0;
+            if (lifePointCharater == 0)
+            {
+                playerLose.SetActive(true);
+            }
+
+            if (lifePointCharater < 0)
+            {
+                lifePointCharater = 0;
+            }
         }
     }
 }

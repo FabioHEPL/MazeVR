@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Select Operation", menuName = "Operations/Select")]
-public class Select : Operation
+namespace MazeVR.Server
 {
-    [SerializeField]
-    private Selection selection;
-    [SerializeField]
-    private LayerMask layer;
-
-    public override void Execute()
+    [CreateAssetMenu(fileName = "Select Operation", menuName = "Operations/Select")]
+    public class Select : Operation
     {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, layer))
+        [SerializeField]
+        private Selection selection;
+        [SerializeField]
+        private LayerMask layer;
+
+        public override void Execute()
         {
-            selection.Include(hit.collider.gameObject);
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, layer))
+            {
+                selection.Include(hit.collider.gameObject);
+            }
         }
     }
 }

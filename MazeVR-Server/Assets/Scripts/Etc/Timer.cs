@@ -3,64 +3,67 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+namespace MazeVR.Server
 {
-    public Text timerText;
-    public GameObject winCondition;
-
-    public int timeMinute = 15;
-    float timeSecond = 60;
-
-    bool timerIsFinich;
-    int timeSecondDisplay;
-
-    private void Start()
+    public class Timer : MonoBehaviour
     {
-        timerIsFinich = false;
-    }
+        public Text timerText;
+        public GameObject winCondition;
 
-    void Update()
-    {
-        timeSecond -= Time.deltaTime;
-        timeSecondDisplay = Mathf.RoundToInt(timeSecond);
+        public int timeMinute = 15;
+        float timeSecond = 60;
 
-        if (timeMinute <= 0 && timeSecond <= 0)
+        bool timerIsFinich;
+        int timeSecondDisplay;
+
+        private void Start()
         {
-            timerIsFinich = true;
-            timerText.text = ("00 : 00");
-            winCondition.SetActive(true);
+            timerIsFinich = false;
         }
 
-        if (timerIsFinich == false)
+        void Update()
         {
-            if (timeMinute != 0 && timeSecondDisplay == 0)
+            timeSecond -= Time.deltaTime;
+            timeSecondDisplay = Mathf.RoundToInt(timeSecond);
+
+            if (timeMinute <= 0 && timeSecond <= 0)
             {
-                timeMinute--;
-                timeSecond = 60;
+                timerIsFinich = true;
+                timerText.text = ("00 : 00");
+                winCondition.SetActive(true);
             }
 
-            if (timeMinute != 0)
+            if (timerIsFinich == false)
             {
-                if (timeMinute != 0 && timeSecondDisplay < 10)
+                if (timeMinute != 0 && timeSecondDisplay == 0)
                 {
-                    timerText.text = (timeMinute + " : " + "0" + timeSecondDisplay);
-                    return;
+                    timeMinute--;
+                    timeSecond = 60;
                 }
 
-                timerText.text = (timeMinute + " : " + timeSecondDisplay);
-            }
-
-            if (timeMinute == 0 || timeMinute < 10)
-            {
-                if (timeMinute < 10 && timeSecondDisplay < 10)
+                if (timeMinute != 0)
                 {
-                    timerText.text = ("0" + timeMinute + " : " + "0" + timeSecondDisplay);
-                    return;
+                    if (timeMinute != 0 && timeSecondDisplay < 10)
+                    {
+                        timerText.text = (timeMinute + " : " + "0" + timeSecondDisplay);
+                        return;
+                    }
+
+                    timerText.text = (timeMinute + " : " + timeSecondDisplay);
                 }
 
-                timerText.text = ("0" + timeMinute + " : " + timeSecondDisplay);
+                if (timeMinute == 0 || timeMinute < 10)
+                {
+                    if (timeMinute < 10 && timeSecondDisplay < 10)
+                    {
+                        timerText.text = ("0" + timeMinute + " : " + "0" + timeSecondDisplay);
+                        return;
+                    }
+
+                    timerText.text = ("0" + timeMinute + " : " + timeSecondDisplay);
+                }
             }
+
         }
-
     }
 }

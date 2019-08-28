@@ -2644,6 +2644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactive
       objectReference: {fileID: 0}
+    - target: {fileID: 951662611339558786, guid: 26c91b3b23d8354408a0a603060bbc43,
+        type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 594157409648281142, guid: 26c91b3b23d8354408a0a603060bbc43,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2729,11 +2734,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 951662611339558786, guid: 26c91b3b23d8354408a0a603060bbc43,
-        type: 3}
-      propertyPath: m_TagString
-      value: Weapon
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c91b3b23d8354408a0a603060bbc43, type: 3}
 --- !u!1001 &924044342462994882
@@ -2808,7 +2808,9 @@ PrefabInstance:
       propertyPath: outIP
       value: 127.0.0.1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 924044343079097357, guid: 8afa4f1d378d24d4db42ade838935482, type: 3}
+    - {fileID: 5553677660245458738, guid: 8afa4f1d378d24d4db42ade838935482, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8afa4f1d378d24d4db42ade838935482, type: 3}
 --- !u!1001 &3350144085156022402
 PrefabInstance:

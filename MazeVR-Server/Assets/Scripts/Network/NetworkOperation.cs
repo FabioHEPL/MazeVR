@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class NetworkOperation : Operation
+namespace MazeVR.Server
 {
-    public abstract int ID { get; }
-
-    // Start is called before the first frame update
-    void Start()
+    public abstract class NetworkOperation : Operation
     {
-        
-    }
+        public abstract int ID { get; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }

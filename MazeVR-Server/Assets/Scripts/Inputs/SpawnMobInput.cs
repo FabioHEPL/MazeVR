@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Spawn Mob Input", menuName = "Custom Inputs/Spawn Mob")]
-public class SpawnMobInput : CustomInput
+namespace MazeVR.Server
 {
-    public KeyCode secondKey;
-
-    [SerializeField]
-    private bool dragging = false;
-
-    public override void Process()
+    [CreateAssetMenu(fileName = "Spawn Mob Input", menuName = "Custom Inputs/Spawn Mob")]
+    public class SpawnMobInput : CustomInput
     {
-        if (Input.GetKeyDown(key))
-        {
-            operation.Execute();
-        }
+        public KeyCode secondKey;
 
-        if (Input.GetKeyUp(secondKey))
+        [SerializeField]
+        private bool dragging = false;
+
+        public override void Process()
         {
-            operation.Execute();
+            if (Input.GetKeyDown(key))
+            {
+                operation.Execute();
+            }
+
+            if (Input.GetKeyUp(secondKey))
+            {
+                operation.Execute();
+            }
         }
     }
 }

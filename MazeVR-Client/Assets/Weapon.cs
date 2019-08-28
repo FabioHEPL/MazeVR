@@ -3,33 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+namespace MazeVR.Client
 {
-    [SerializeField]
-    private LayerMask enemyLayerMask;
-
-    [SerializeField]
-    private int damage;
-
-    public int Damage => this.damage;
-
-    public event Action Hit;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Weapon : MonoBehaviour
     {
-        
-    }
+        [SerializeField]
+        private LayerMask enemyLayerMask;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        [SerializeField]
+        private int damage;
+
+        public int Damage => this.damage;
+
+        public event Action Hit;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log($"collided ! with {other.name}");
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log($"collided ! with {other.name}");
+        }
     }
 }

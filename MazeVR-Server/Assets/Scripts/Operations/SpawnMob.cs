@@ -3,77 +3,80 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Spawn Mob", menuName = "Operations/Spawn Mob")]
-public class SpawnMob : Operation
+namespace MazeVR.Server
 {
-    [SerializeField]
-    private GameObject mobPrefab;  
-    [SerializeField]
-    LayerMask spawnAreaLayerMask;
-    [SerializeField]
-    string toAvoidLayerName;
-
-    private GameObject mob;
-
-    [SerializeField]
-    private bool dragging = false;
-
-    public override void Execute()
+    [CreateAssetMenu(fileName = "Spawn Mob", menuName = "Operations/Spawn Mob")]
+    public class SpawnMob : Operation
     {
-        //if (!dragging)
-        //{
-        //   // Vector3 point = GetRaycastPoint();
-        //    if (point != Vector3.zero)
-        //    {
-        //        mob = Instantiate(mobPrefab, point, Quaternion.identity);
+        [SerializeField]
+        private GameObject mobPrefab;
+        [SerializeField]
+        LayerMask spawnAreaLayerMask;
+        [SerializeField]
+        string toAvoidLayerName;
+
+        private GameObject mob;
+
+        [SerializeField]
+        private bool dragging = false;
+
+        public override void Execute()
+        {
+            //if (!dragging)
+            //{
+            //   // Vector3 point = GetRaycastPoint();
+            //    if (point != Vector3.zero)
+            //    {
+            //        mob = Instantiate(mobPrefab, point, Quaternion.identity);
+            //    }
+
+            //    dragging = true;
+            //}
+            //else
+            //{
+            //    //Vector3 point = GetRaycastPoint();
+            //    if (point != Vector3.zero)
+            //    {
+            //        //mob.
+            //    }
+            //}
+        }
+
+        //        RaycastHit hit;
+
+        //        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, LayerMask.GetMask(LayerMask.LayerToName(button.layer))))
+        //        {
+        //            if (hit.collider.gameObject.Equals(button))
+        //            {
+        //                enemy = Instantiate(enemyPrefab, hit.point, Quaternion.identity);
+        //                dragging = true;
+        //            }
+        //        }
         //    }
 
-        //    dragging = true;
-        //}
-        //else
-        //{
-        //    //Vector3 point = GetRaycastPoint();
-        //    if (point != Vector3.zero)
+        //    RaycastHit hit;
+        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, layer))
         //    {
-        //        //mob.
+        //        selection.Include(hit.collider.gameObject);
         //    }
+
+        //    hit = GetRaycastPoint();
         //}
-     }
 
-    //        RaycastHit hit;
+        //private Vector3 GetRaycastPoint()
+        //{
+        //    RaycastHit hit;
 
-    //        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, LayerMask.GetMask(LayerMask.LayerToName(button.layer))))
-    //        {
-    //            if (hit.collider.gameObject.Equals(button))
-    //            {
-    //                enemy = Instantiate(enemyPrefab, hit.point, Quaternion.identity);
-    //                dragging = true;
-    //            }
-    //        }
-    //    }
+        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, spawnAreaLayerMask))
+        //    {
+        //        Debug.Log(LayerMask.LayerToName(hit.collider.gameObject.layer));
+        //        if (hit.collider.gameObject.layer != LayerMask.NameToLayer(toAvoidLayerName))
+        //        {
+        //            enemy.transform.position = hit.point;
+        //        }
+        //    }
 
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, layer))
-    //    {
-    //        selection.Include(hit.collider.gameObject);
-    //    }
-
-    //    hit = GetRaycastPoint();
-    //}
-
-    //private Vector3 GetRaycastPoint()
-    //{
-    //    RaycastHit hit;
-
-    //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, spawnAreaLayerMask))
-    //    {
-    //        Debug.Log(LayerMask.LayerToName(hit.collider.gameObject.layer));
-    //        if (hit.collider.gameObject.layer != LayerMask.NameToLayer(toAvoidLayerName))
-    //        {
-    //            enemy.transform.position = hit.point;
-    //        }
-    //    }
-
-    //    return hit;
-    //}
+        //    return hit;
+        //}
+    }
 }

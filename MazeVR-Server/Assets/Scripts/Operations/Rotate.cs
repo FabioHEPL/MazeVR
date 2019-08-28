@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Rotate", menuName = "Operations/Rotate")]
-public class Rotate : Operation
+namespace MazeVR.Server
 {
-    public Selection selection;
-    public float angle;
-
-    public override void Execute()
+    [CreateAssetMenu(fileName = "Rotate", menuName = "Operations/Rotate")]
+    public class Rotate : Operation
     {
-        GameObject[] gameObjects = selection.Elements;
+        public Selection selection;
+        public float angle;
 
-        if (gameObjects.Length != 1)
-            return;
+        public override void Execute()
+        {
+            GameObject[] gameObjects = selection.Elements;
 
-        gameObjects[0].transform.Rotate(new Vector3(0f, angle, 0f));
+            if (gameObjects.Length != 1)
+                return;
 
-        base.OnExecuted();
+            gameObjects[0].transform.Rotate(new Vector3(0f, angle, 0f));
+
+            base.OnExecuted();
+        }
     }
 }
+    

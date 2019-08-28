@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Operation : ScriptableObject
+namespace MazeVR.Server
 {
-    public abstract void Execute();
-    public event Action Executed;
-
-    protected virtual void OnExecuted()
+    public abstract class Operation : ScriptableObject
     {
-        Executed?.Invoke();
-    }
+        public abstract void Execute();
+        public event Action Executed;
 
+        protected virtual void OnExecuted()
+        {
+            Executed?.Invoke();
+        }
+
+    }
 }

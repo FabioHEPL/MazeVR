@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public abstract class Operation : ScriptableObject
+namespace MazeVR.Client
 {
-    public abstract void Execute();
+    public abstract class Operation : ScriptableObject
+    {
+        public abstract void Execute();
+    }
 }

@@ -2,28 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiLifePoint : MonoBehaviour
+namespace MazeVR.Server
 {
-    [SerializeField] int lifePoint = 10;
-
-    public int LifePoint
+    public class EnemiLifePoint : MonoBehaviour
     {
-        get
+        [SerializeField] int lifePoint = 10;
+
+        public int LifePoint
         {
-            return lifePoint;
+            get
+            {
+                return lifePoint;
+            }
+
+            set
+            {
+                lifePoint = value;
+            }
         }
 
-        set
+        private void Update()
         {
-            lifePoint = value;
-        }
-    }
-
-    private void Update()
-    {
-        if (lifePoint < 0)
-        {
-            lifePoint = 0;
+            if (lifePoint < 0)
+            {
+                lifePoint = 0;
+            }
         }
     }
 }

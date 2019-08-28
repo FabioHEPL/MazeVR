@@ -1,4 +1,5 @@
 ﻿using MazeVR;
+using MazeVR.Shared;
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;

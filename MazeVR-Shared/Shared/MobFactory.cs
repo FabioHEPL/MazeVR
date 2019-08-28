@@ -1,9 +1,12 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+
 
 namespace MazeVR.Shared
 {
@@ -11,6 +14,7 @@ namespace MazeVR.Shared
     {
         [SerializeField]
         private GameObject mobPrefab;
+
 
         public GameObject CreateMob(Vector3 position)
         {

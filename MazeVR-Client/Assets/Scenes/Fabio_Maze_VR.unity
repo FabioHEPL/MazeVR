@@ -129,7 +129,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 219831096}
-  - component: {fileID: 219831095}
   m_Layer: 0
   m_Name: Remote Mob Factory
   m_TagString: Untagged
@@ -137,22 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &219831095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219831094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 210115617, guid: 88f0bac79747b464d83728f86cc675ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 4
-  mobPrefab: {fileID: 2716027882093718007, guid: 0657ff3f83677d749936e19f95aa5a47,
-    type: 3}
-  network: {fileID: 0}
 --- !u!4 &219831096
 Transform:
   m_ObjectHideFlags: 0
@@ -536,7 +519,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2771923549243767938, guid: 0657ff3f83677d749936e19f95aa5a47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0657ff3f83677d749936e19f95aa5a47, type: 3}
 --- !u!1001 &1802368735
 PrefabInstance:
@@ -2747,6 +2731,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Network
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617984447198625120, guid: 8afa4f1d378d24d4db42ade838935482,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6617984447198625122, guid: 8afa4f1d378d24d4db42ade838935482,
         type: 3}

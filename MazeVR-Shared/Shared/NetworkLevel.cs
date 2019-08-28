@@ -1,11 +1,8 @@
-﻿
-using MazeVR.Server;
+﻿using MazeVR.Server;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 
 namespace MazeVR.Shared
 {

@@ -1,38 +1,55 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
-namespace MazeVR
-{
-    public class Network : MonoBehaviour
+namespace MazeVR.Shared
+{    
+    public class MazeVRNetwork : Network
     {
         [SerializeField]
-        private List<NetworkEntity> entities;       
+        private int countDebug = 0;
 
-        private OSC osc;     
+        [SerializeField]
+        private List<NetworkEntity> entities;
 
-        public virtual void Register(NetworkEntity entity)
+        [SerializeField]
+        private NetworkEntity f;
+
+        [SerializeField]
+        private OSC osc;  
+
+        public override void Register(NetworkEntity entity)
         {
-            entities.Add(entity);
+
+            entities.Add(entity);          
+
             entity.Updated += Entity_Updated;
+            countDebug++;
+
+            Debug.Log($"Entity '{entity.GameObject.name}' registered on network with id '{GetEntityIndex(entity)}'.");
         }
 
         private void Entity_Updated(object sender, NetworkEntityUpdatedArgs args)
         {
             NetworkEntity entity = (NetworkEntity)sender;
-            OscMessage message = BuildMessage(entity.ID, args);
+            OscMessage message = BuildMessage(GetEntityIndex(entity), args);
             this.osc.Send(message);
+        }
+
+        private int GetEntityIndex(NetworkEntity entity)
+        {
+            return entities.IndexOf(entity);
         }
 
         private static OscMessage BuildMessage(int entityId, NetworkEntityUpdatedArgs args)
         {
             OscMessage message = new OscMessage();
-            message.address = String.Format($"/{args.Label}");
+            message.address = String.Format($"/{args.Update.Label}");
             message.values.Add(entityId);
 
-            foreach (object value in args.Values)
+            foreach (object value in args.Update.Values)
                 message.values.Add(value);
 
             return message;
@@ -41,22 +58,22 @@ namespace MazeVR
         private void Synchronise_Entity(OscMessage message)
         {
             int entityId = message.GetInt(0);
-            NetworkEntity entity = entities.FirstOrDefault(e => e.ID == entityId);
+            NetworkEntity entity = entities.ElementAtOrDefault(entityId);
 
             if (entity == null)
             {
-                Debug.LogWarning($"Could not find entity with ID number {entityId}");                    
+                Debug.LogWarning($"Could not find entity with ID number {entityId}");
             }
             else
             {
-                entity.Synchronize(message);
+                entity.Synchronize(new NetworkUpdate("", null) { Message = message });
             }
         }
 
         private void Awake()
-        {            
-            this.entities = GameObject.FindObjectsOfType<NetworkEntity>().ToList();
+        {           
             this.osc = this.GetComponent<OSC>();
+            this.entities = new List<NetworkEntity>();
         }
 
         private void Start()
@@ -80,5 +97,5 @@ namespace MazeVR
             }
         }
     }
-
 }
+

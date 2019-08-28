@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MazeVR
+namespace MazeVR.Shared
 {
-    public class NetworkEntityUpdatedArgs : EventArgs
+    public class NetworkBehaviourUpdatedArgs : EventArgs
     {
         private object[] values;
         private string label;
@@ -13,7 +13,7 @@ namespace MazeVR
         public string Label => label;
         public object[] Values => values;
 
-        public NetworkEntityUpdatedArgs(string label, params object[] values)
+        public NetworkBehaviourUpdatedArgs(string label, params object[] values)
         {
             this.label = label;
             this.values = values;

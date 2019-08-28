@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-namespace MazeVR
+
+namespace MazeVR.Shared
 {
     public class MobCreatedArgs : EventArgs
     {
@@ -11,6 +12,7 @@ namespace MazeVR
         public MobCreatedArgs(GameObject mob)
         {
             this.mob = mob;
+           
         }
     }
 }

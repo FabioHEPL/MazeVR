@@ -32,11 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MazeVR-Client">
-      <HintPath>..\MazeVR-Client\MazeVR-Client.dll</HintPath>
-    </Reference>
     <Reference Include="MazeVR-Server">
-      <HintPath>..\MazeVR-Server\MazeVR-Server.dll</HintPath>
+      <HintPath>..\..\..\Documents\Fabio\projects\MazeVR\MazeVR-Server\Library\ScriptAssemblies\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MazeVR-Client">
+      <HintPath>..\..\..\Documents\Fabio\projects\MazeVR\MazeVR-Client\Library\ScriptAssemblies\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,21 +48,44 @@
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.1.14f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.1.14f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Scripts\NetworkLevel.cs" />
-    <Compile Include="Scripts\NeworkMobFactory.cs" />
-    <Compile Include="Scripts\MobCreatedArgs.cs" />
-    <Compile Include="Scripts\MobFactory.cs" />
-    <Compile Include="Scripts\Network.cs" />
-    <Compile Include="Scripts\NetworkEntity.cs" />
-    <Compile Include="Scripts\NetworkEntityUpdatedArgs.cs" />
-    <Compile Include="Scripts\NetworkPlayer.cs" />
-    <Compile Include="Scripts\OSC.cs" />
+    <Compile Include="Shared\CompositeMap.cs" />
+    <Compile Include="Shared\CompositeNetworkBehaviour.cs" />
+    <Compile Include="Shared\CompositeNetworkMob.cs" />
+    <Compile Include="Shared\NetworkRotation.cs" />
+    <Compile Include="Shared\NetworkPosition.cs" />
+    <Compile Include="Shared\RemoteMobFactory.cs" />
+    <Compile Include="Shared\MazeVRClient.cs" />
+    <Compile Include="Shared\MazeVRServer.cs" />
+    <Compile Include="Shared\MazeVRNetworkBehaviour.cs" />
+    <Compile Include="Shared\LocalMobFactory.cs" />
+    <Compile Include="Shared\RegisteredNetworkBehaviour.cs" />
+    <None Include="Beta\AutoRegister.cs" />
+    <None Include="Beta\MazeVRNetwork.cs" />
+    <None Include="Beta\Mob.cs" />
+    <None Include="Beta\MobFactory.cs" />
+    <None Include="Beta\MobFactoryNetworkBehaviour.cs" />
+    <None Include="Beta\Network.cs" />
+    <None Include="Beta\NetworkBehaviour.cs" />
+    <None Include="Beta\NetworkEntity.cs" />
+    <None Include="Beta\NetworkFactory.cs" />
+    <None Include="Beta\NetworkPlayerBehaviour.cs" />
+    <None Include="Beta\NetworkUpdate.cs" />
+    <None Include="Beta\Player.cs" />
+    <Compile Include="Shared\Network.cs" />
+    <Compile Include="Shared\NeworkMobFactory.cs" />
+    <Compile Include="Shared\MobCreatedArgs.cs" />
+    <Compile Include="Shared\MobFactory.cs" />
+    <Compile Include="Shared\MazeVRNetwork.cs" />
+    <Compile Include="Shared\NetworkBehaviour.cs" />
+    <Compile Include="Shared\NetworkBehaviourUpdatedArgs.cs" />
+    <Compile Include="Shared\NetworkPlayer.cs" />
+    <Compile Include="Shared\OSC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scripts\NetworkMob.cs" />
+    <Compile Include="Shared\NetworkMob.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\MazeVR-Shared.dll" />
@@ -70,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

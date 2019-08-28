@@ -6,15 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace MazeVR
+namespace MazeVR.Shared
 {
-    public class NetworkPlayer : NetworkEntity
+    public class NetworkMob : NetworkBehaviour
     {
         [SerializeField]
-        private int id = 1;
-
-        [SerializeField]
-        private GameObject avatar;
+        private int id = 10;
 
         [SerializeField]
         private int tickrate = 30;
@@ -25,18 +22,9 @@ namespace MazeVR
         [SerializeField]
         private bool update = true;
 
-        public override int ID => this.id;
+      
 
-        public override void Synchronize(OscMessage message)
-        {
-            float x = message.GetFloat(1);
-            float y = message.GetFloat(2);
-            float z = message.GetFloat(3);
-    
-            avatar.transform.position = new Vector3(x, y, z);
-        }
-
-        protected override void OnUpdated(NetworkEntityUpdatedArgs args)
+        protected override void OnUpdated(NetworkBehaviourUpdatedArgs args)
         {
             base.OnUpdated(args);
         }
@@ -68,16 +56,20 @@ namespace MazeVR
 
         private void SendPosition()
         {
-            Vector3 avatarPosition = avatar.transform.position;
-            float x = avatarPosition.x;
-            float y = avatarPosition.y;
-            float z = avatarPosition.z;
-
-            NetworkEntityUpdatedArgs args =
-                new NetworkEntityUpdatedArgs("PlayerPosition", x, y, z);
+            NetworkBehaviourUpdatedArgs args =
+                new NetworkBehaviourUpdatedArgs("MobPosition", transform.position.x,
+                    transform.position.y, transform.position.z);
 
             OnUpdated(args);
         }
+
+        public override void Synchronize(OscMessage message)
+        {
+            float x = message.GetFloat(1);
+            float y = message.GetFloat(2);
+            float z = message.GetFloat(3);
+
+            transform.position = new Vector3(x, y, z);
+        }
     }
 }
-

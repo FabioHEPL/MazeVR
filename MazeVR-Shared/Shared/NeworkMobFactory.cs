@@ -5,20 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace MazeVR
+namespace MazeVR.Shared
 {
-    public class NetworkMobFactory : NetworkEntity
+    public class NetworkMobFactory : NetworkBehaviour
     {
-        [SerializeField]
-        private int id = 4;
-
         [SerializeField]
         private MobFactory mobFactory;
 
         [SerializeField]
-        private Network network;
-
-        public override int ID => this.id;
+        private Network network;       
 
         private void Awake()
         {
@@ -37,18 +32,18 @@ namespace MazeVR
 
         private void MobFactory_Created(object sender, MobCreatedArgs args)
         {
-            NetworkEntity entity = args.Mob.GetComponent<NetworkEntity>();
-            network.Register(entity);
+            NetworkBehaviour entity = args.Mob.GetComponent<NetworkBehaviour>();
+            int registeredId = network.Register(entity);
 
             float x = args.Mob.transform.position.x;
             float y = args.Mob.transform.position.y;
             float z = args.Mob.transform.position.z;
 
-            NetworkEntityUpdatedArgs entityArgs = new NetworkEntityUpdatedArgs("Created", x, y, z);
+            NetworkBehaviourUpdatedArgs entityArgs = new NetworkBehaviourUpdatedArgs("Created", registeredId, x, y, z);
             OnUpdated(entityArgs);
         }
 
-        protected override void OnUpdated(NetworkEntityUpdatedArgs args)
+        protected override void OnUpdated(NetworkBehaviourUpdatedArgs args)
         {
             base.OnUpdated(args);
         }
@@ -59,9 +54,6 @@ namespace MazeVR
 
             // networkComponent.Update(message);
 
-
-
-
             if (message.address.Equals("/Created"))
             {
 
@@ -71,12 +63,12 @@ namespace MazeVR
                 mobPosition.y = message.GetFloat(2);
                 mobPosition.z = message.GetFloat(3);
 
-                GameObject mob = CreateMob(mobPosition);
+                GameObject mob = null;
 
-                NetworkEntity entity = mob.GetComponent<NetworkEntity>();
+                NetworkBehaviour entity = mob.GetComponent<NetworkBehaviour>();
 
 
-                network.Register_Remote(entity);
+               // network.Register_Remote(entity);
             }
         }
     }

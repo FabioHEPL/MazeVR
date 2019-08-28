@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace MazeVR
+namespace MazeVR.Beta
 {
-    public class MobFactory : MonoBehaviour
+    public class MobFactoryBehaviour : MonoBehaviour
     {
         [SerializeField]
         private GameObject mobPrefab;
@@ -28,4 +27,14 @@ namespace MazeVR
         public event EventHandler<MobCreatedArgs> Created;
     }
 
+    public class MobCreatedArgs : EventArgs
+    {
+        private GameObject mob;
+        public GameObject Mob => mob;
+
+        public MobCreatedArgs(GameObject mob)
+        {
+            this.mob = mob;
+        }
+    }
 }

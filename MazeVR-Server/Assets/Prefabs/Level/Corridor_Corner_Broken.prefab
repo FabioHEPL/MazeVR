@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629902929124334306}
   - component: {fileID: 7562478173639946232}
+  - component: {fileID: 6310818100414519052}
   m_Layer: 10
   m_Name: Corridor_Corner_Broken
   m_TagString: Untagged
@@ -145,7 +146,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4532456003001247985}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -168,6 +169,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 3.2267475, z: 4}
   m_Center: {x: 0, y: 1.6048751, z: -2.2444239e-15}
+--- !u!114 &6310818100414519052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4532456003001247985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316444c62b757eb4ca96821be2c8ccc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotationType: 0
 --- !u!1 &7131019082260571195
 GameObject:
   m_ObjectHideFlags: 0

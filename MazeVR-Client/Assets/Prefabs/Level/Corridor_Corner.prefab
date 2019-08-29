@@ -163,7 +163,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4532456003001247985}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4, y: 3.2267475, z: 4}
@@ -180,7 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316444c62b757eb4ca96821be2c8ccc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotationType: 0
 --- !u!1 &7131019082260571195
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +231,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 629902929124334306}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: a3486f4541f51f348886e132c8ff2578,
+        type: 3}
+      propertyPath: m_Name
+      value: Corridor_Corner_Rework
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a3486f4541f51f348886e132c8ff2578,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -301,11 +305,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: a3486f4541f51f348886e132c8ff2578,
-        type: 3}
-      propertyPath: m_Name
-      value: Corridor_Corner_Rework
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: a3486f4541f51f348886e132c8ff2578,
         type: 3}

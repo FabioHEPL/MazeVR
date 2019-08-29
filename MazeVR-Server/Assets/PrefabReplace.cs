@@ -45,7 +45,7 @@ public class PrefabReplace : EditorWindow
     private void Searching()
     {
         //GUI.Label(new Rect(10, 15, 150, 20), "Search by name", guiStyle);
-        objectsToSearch = GUI.TextField(new Rect(90, 35, 150, 20), objectsToSearch, 25);
+        objectsToSearch = GUI.TextField(new Rect(90, 35, 150, 20), objectsToSearch, 99);
  
         if (objectsToSearch != "")
         {
@@ -68,11 +68,11 @@ public class PrefabReplace : EditorWindow
                 {
                     count += 1;
                     foundObjects.Add(gameObj);
-                    foreach (Transform child in gameObj.transform)
-                    {
-                        count += 1;
-                        foundObjects.Add(child.gameObject);
-                    }
+                    //foreach (Transform child in gameObj.transform)
+                    //{
+                    //    count += 1;
+                    //    foundObjects.Add(child.gameObject);
+                    //}
                 }
             }
  

@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FakePlayer : MonoBehaviour, Player
+public class FakePlayer : MonoBehaviour
 {
     public int health = 100;
 

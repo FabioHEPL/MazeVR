@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MazeVR.Client
+namespace MazeVR.Server
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "Swap", menuName = "Operations/Swap")]
     public class Swap : Operation
     {
         public Selection selection;
@@ -22,6 +22,8 @@ namespace MazeVR.Client
             Vector3 firstPosition = first.transform.position;
             first.transform.position = second.transform.position;
             second.transform.position = firstPosition;
+
+            base.OnExecuted();
         }
     }
 }

@@ -5,20 +5,18 @@ using UnityEngine;
 public class Attach : MonoBehaviour
 {
     [SerializeField]
-    private Transform to;
-
-    [SerializeField]
-    private GameObject cameraPrefab;
+    private Transform to;    
 
     private void Awake()
     {
-        this.Execute();
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.transform.parent = to;
+        this.GetComponent<Camera>().enabled = true;
     }
 
     // Update is called once per frame
@@ -27,8 +25,5 @@ public class Attach : MonoBehaviour
         
     }
 
-    public void Execute()
-    {
 
-    }
 }

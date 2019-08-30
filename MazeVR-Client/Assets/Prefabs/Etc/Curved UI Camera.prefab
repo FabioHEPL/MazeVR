@@ -4794,7 +4794,8 @@ GameObject:
   - component: {fileID: 1610926115429449800}
   - component: {fileID: 1610926115429449801}
   - component: {fileID: 1610926115429449806}
-  - component: {fileID: 1610926115429449807}
+  - component: {fileID: 606170777}
+  - component: {fileID: 606170778}
   m_Layer: 0
   m_Name: Curved UI Camera
   m_TagString: MainCamera
@@ -4879,14 +4880,34 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610926115429449804}
   m_Enabled: 1
---- !u!81 &1610926115429449807
-AudioListener:
+--- !u!114 &606170777
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610926115429449804}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee8651347355634c86c40b4065d269f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 0}
+  identity: {fileID: 0}
+  smoothFactor: 2
+--- !u!114 &606170778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610926115429449804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213bed34e0918344dadc00b411149e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  to: {fileID: 0}
 --- !u!1 &1610926115432593630
 GameObject:
   m_ObjectHideFlags: 0

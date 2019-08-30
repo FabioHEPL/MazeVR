@@ -50,6 +50,7 @@
     <Compile Include="Shared\CompositeMap.cs" />
     <Compile Include="Shared\CompositeNetworkBehaviour.cs" />
     <Compile Include="Shared\CompositeNetworkMob.cs" />
+    <Compile Include="Shared\Timer.cs" />
     <Compile Include="Shared\Utils.cs" />
     <None Include="Shared\NetworkLevel.cs" />
     <Compile Include="Shared\EndGame.cs" />

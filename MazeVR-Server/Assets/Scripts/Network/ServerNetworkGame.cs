@@ -20,6 +20,7 @@ namespace MazeVR.Server
 
 
         public event Action Connected;
+        public event Action Started;
 
         private void Awake()
         {
@@ -33,9 +34,7 @@ namespace MazeVR.Server
             serverNetwork.Ready += ServerNetwork_Ready;
             loseCondition.Fulfilled += LoseCondition_Fulfilled;
             winCondition.Fulfilled += WinCondition_Fulfilled;
-        }
-
- 
+        } 
 
         private void OnDisable()
         {
@@ -45,10 +44,10 @@ namespace MazeVR.Server
             // game.Ended -= Game_Ended;
         }
 
-
         private void ServerNetwork_Ready()
         {
             OnConnected();
+            OnStarted();
         }
 
         private void OnConnected()
@@ -57,6 +56,14 @@ namespace MazeVR.Server
             OnUpdated(args);
 
             this.Connected?.Invoke();
+        }
+
+        private void OnStarted()
+        {
+            NetworkBehaviourUpdatedArgs args = new NetworkBehaviourUpdatedArgs("Started");
+            OnUpdated(args);
+
+            this.Started?.Invoke();
         }
 
         private void LoseCondition_Fulfilled(object sender, FulfilledArgs e)

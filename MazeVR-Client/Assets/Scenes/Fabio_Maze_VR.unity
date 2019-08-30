@@ -2392,6 +2392,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Mob
       objectReference: {fileID: 0}
+    - target: {fileID: 2716027882093718007, guid: 0657ff3f83677d749936e19f95aa5a47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1434991519371516900, guid: 0657ff3f83677d749936e19f95aa5a47,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4891,7 +4896,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 347.2, y: 477.1}
   savedColor: {r: 0, g: 0.25343382, b: 0.4339623, a: 1}
-  savedTextUV0: {x: 0.04296875, y: 0.75}
+  savedTextUV0: {x: 0.64453125, y: 0}
   savedFill: 0
 --- !u!114 &1624303005
 MonoBehaviour:
@@ -5352,6 +5357,10 @@ MonoBehaviour:
   behaviourMaps:
   - identifier: Hit
     behaviour: {fileID: 1947387499}
+  - identifier: Position
+    behaviour: {fileID: 1947387507}
+  - identifier: Rotation
+    behaviour: {fileID: 1947387506}
 --- !u!114 &1947387502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5395,6 +5404,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1947387506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947387498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2136975141, guid: 88f0bac79747b464d83728f86cc675ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  update: 0
+  avatar: {fileID: 0}
+  tickrate: 30
+--- !u!114 &1947387507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947387498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -707595144, guid: 88f0bac79747b464d83728f86cc675ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  update: 0
+  avatar: {fileID: 0}
+  tickrate: 30
 --- !u!1 &1973566707
 GameObject:
   m_ObjectHideFlags: 0
@@ -5616,7 +5655,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 773.9, y: 89.22}
   savedColor: {r: 1, g: 1, b: 1, a: 0.22352941}
-  savedTextUV0: {x: 0.66015625, y: 0.921875}
+  savedTextUV0: {x: 0.19140625, y: 0.20703125}
   savedFill: 0
 --- !u!114 &1994335525
 MonoBehaviour:
@@ -7469,7 +7508,7 @@ MonoBehaviour:
   toRegister:
   - {fileID: 346951320}
   - {fileID: 1289706616}
-  - {fileID: 1947387499}
+  - {fileID: 1947387500}
 --- !u!114 &6270436359410951332
 MonoBehaviour:
   m_ObjectHideFlags: 0

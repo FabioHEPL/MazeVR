@@ -9,64 +9,55 @@ namespace MazeVR.Server
     public class ServerTimer : NetworkBehaviour
     {
         [SerializeField]
-        private float totalSeconds;
-        public float TotalSeconds
+        private int seconds = 10;
+        public int Seconds
         {
-            get { return totalSeconds; }
-            set { totalSeconds = value; }
+            get { return seconds; }
+            set { seconds = value; }
         }
 
-        public Action OnStart { get; set; }
-        public Action OnEnd { get; set; }
-        public Action<float> OnTick { get; set; }        
-
-        public void Begin()
+        [SerializeField]
+        private int currentSeconds = 0;
+        public int CurrentSeconds
         {
-            OnBegan();
+            get { return currentSeconds; }
+            set { currentSeconds = value; }
         }
 
-        private void OnBegan()
-        {
-
-
-            OnUpdated(new NetworkBehaviourUpdatedArgs("Began", totalSeconds));
-        }
-
-        //private void OnTick()
-        //{
-
-        //}
-
-        public override void Synchronize(OscMessage message)
-        {
-            
-        }
-
-        //public void Begin()
-        //{
-        //    StartCoroutine(StartTimer());
-        //    this.Began?.Invoke();
-        //}
-
-        protected IEnumerator StartTimer()
-        {
-            float currentTime = 0;
-            while (currentTime < totalSeconds)
-            {
-                currentTime += Time.deltaTime;
-                //OnTick();
-                yield return null;
-            }
-        }
+        public event Action Began;
+        public event Action Tick;
 
         // Start is called before the first frame update
         void Start()
         {
-
+            this.Begin();
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Begin()
+        {
+            StartCoroutine(BeginTick());
+            this.Began?.Invoke();
+        }
+
+        protected IEnumerator BeginTick()
+        {
+            this.currentSeconds = this.seconds;
+            while (currentSeconds >= 0)
+            {
+                yield return new WaitForSecondsRealtime(1);
+                currentSeconds--;
+                OnTick();
+            }
+        }
+
+        protected void OnTick()
+        {
+            Debug.Log("Tick");
+            this.Tick?.Invoke();
+            this.OnUpdated(new NetworkBehaviourUpdatedArgs("Tick", currentSeconds));
+        }
+
+        public override void Synchronize(OscMessage message)
         {
 
         }

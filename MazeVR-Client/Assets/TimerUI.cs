@@ -20,28 +20,35 @@ namespace MazeVR.Client
 
         private void Start()
         {
-            timer.OnTick = () => this.Refresh();
+     
         }
 
         private void Refresh()
         {
-            TimeSpan timeSpan = TimeSpan.FromSeconds(timer.Seconds);
+            TimeSpan timeSpan = TimeSpan.FromSeconds(timer.CurrentSeconds);
             timerText.text = timeSpan.ToString(@"mm\:ss");
         }
 
         private void OnEnable()
         {
             this.timer.Began += Timer_Began;
+            this.timer.Tick += Timer_Tick;
         }
 
         private void OnDisable()
         {
             this.timer.Began -= Timer_Began;
+            this.timer.Tick -= Timer_Tick;
         }
 
         private void Timer_Began()
         {
             
+        }
+
+        private void Timer_Tick()
+        {
+            this.Refresh();
         }
 
         // Update is called once per frame

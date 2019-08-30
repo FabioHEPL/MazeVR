@@ -9,11 +9,19 @@ namespace MazeVR.Client
     public class ClientTimer : NetworkBehaviour
     {
         [SerializeField]
-        private float seconds = 10;
-        public float Seconds
+        private int seconds = 10;
+        public int Seconds
         {
             get { return seconds; }
             set { seconds = value; }
+        }
+
+        [SerializeField]
+        private int currentSeconds = 0;
+        public int CurrentSeconds
+        {
+            get { return currentSeconds; }
+            set { currentSeconds = value; }
         }
 
         public override void Synchronize(OscMessage message)
@@ -23,12 +31,16 @@ namespace MazeVR.Client
                 case "Began":
                     OnBegan(message);
                     break;
+                case "Tick":
+                    OnTick(message);
+                    break;
             }
         }
 
         public event Action Began;
+        public event Action Tick;
 
-        public Action OnTick { get; set; }
+        //public Action OnTick { get; set; }
 
         // Start is called before the first frame update
         void Start()
@@ -38,36 +50,15 @@ namespace MazeVR.Client
 
         private void OnBegan(OscMessage message)
         {
-            this.seconds = message.GetFloat(1);
-            this.Begin();
+            //this.seconds = message.GetFloat(1);
+            
         }
 
-        // Update is called once per frame
-        void Update()
+        
+        protected void OnTick(OscMessage message)
         {
-
-        }
-
-        public void Begin()
-        {
-            StartCoroutine(StartTimer());
-            this.Began?.Invoke();
-        }
-
-        protected IEnumerator StartTimer()
-        {
-            float currentTime = 0;
-            while (currentTime < seconds)
-            {
-                currentTime += Time.deltaTime;
-                OnTick();
-                yield return null;
-            }
-        }
-
-        protected void OnEnded()
-        {
-
+            currentSeconds = message.GetInt(1);
+            this.Tick?.Invoke();
         }
     }
 

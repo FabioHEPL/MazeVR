@@ -32,7 +32,7 @@ namespace MazeVR.Client
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log($"collided ! with {other.name}");
+            Debug.Log($"{this.name} collided with {other.name}");
         }
     }
 }

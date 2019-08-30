@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MazeVR.Client
+namespace MazeVR.Server
 {
     public class InputManager : MonoBehaviour
     {

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MazeVR.Client
+namespace MazeVR.Server
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "Selection", menuName = "Etc/Create Selection")]
     public class Selection : ScriptableObject
     {
         [SerializeField]

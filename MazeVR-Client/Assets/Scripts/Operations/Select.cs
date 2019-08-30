@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MazeVR.Client
+namespace MazeVR.Server
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "Select Operation", menuName = "Operations/Select")]
     public class Select : Operation
     {
         [SerializeField]

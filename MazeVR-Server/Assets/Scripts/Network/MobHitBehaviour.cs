@@ -8,6 +8,17 @@ namespace MazeVR.Server
 {
     public class MobHitBehaviour : NetworkBehaviour
     {
+        [SerializeField]
+        private Rigidbody _rigidbody;
+
+        [SerializeField]
+        private Vector3 hitTrajectory;
+
+        private void Awake()
+        {
+            this._rigidbody = GetComponent<Rigidbody>();
+        }
+
         public override void Synchronize(OscMessage message)
         {
             switch (message.address)
@@ -21,6 +32,12 @@ namespace MazeVR.Server
         private void OnHit(OscMessage message)
         {
             Debug.Log("mob got it");
+            Fallback();
+        }
+
+        private void Fallback()
+        {
+            _rigidbody.AddForce(-transform.forward + hitTrajectory, ForceMode.Impulse);
         }
     }
 }

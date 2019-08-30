@@ -46,7 +46,6 @@ namespace MazeVR.Client
             gameStatus.transform.parent.gameObject.SetActive(false);
         }
 
-
         private void Game_Ended(object sender, EndedArgs args)
         {
             // Afficher texte

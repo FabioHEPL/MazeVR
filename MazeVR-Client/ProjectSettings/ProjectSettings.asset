@@ -160,7 +160,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: be.BouckenoogheNathan.VR_Proto_fabio
+    Android: be.BouckenoogheNathan.VR_Proto_Final
     Standalone: com.oculus.UnitySample
   buildNumber: {}
   AndroidBundleVersionCode: 1
@@ -398,8 +398,6 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 1
     m_Devices:
-    - None
-    - Oculus
     - OpenVR
   - m_BuildTarget: Android
     m_Enabled: 1

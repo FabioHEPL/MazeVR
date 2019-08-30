@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Fabio_Maze_VR.unity
-    guid: 4a4b3fa0f397d9445aa37385bcca2435
+  m_Scenes: []
   m_configObjects: {}

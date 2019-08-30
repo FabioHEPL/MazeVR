@@ -29,7 +29,6 @@ namespace MazeVR.Client
             this.game.Ended += Game_Ended;
         }
 
-
         private void OnDisable()
         {
             this.game.Connected -= Game_Connected;
@@ -42,25 +41,25 @@ namespace MazeVR.Client
             gameStatus.text = "Connected to server.\nGame is about to start...";
         }
 
-        private void Game_Started()
+        private void Game_Started(object sender, StartedArgs args)
         {
             gameStatus.transform.parent.gameObject.SetActive(false);
         }
 
 
-        private void Game_Ended()
+        private void Game_Ended(object sender, EndedArgs args)
         {
             // Afficher texte
             endGame.transform.parent.gameObject.SetActive(true);
 
-            //if (args.EndGame == EndGame.Victory)
-            //{
-            //    endGame.text = "You win !";
-            //}
-            //else if (args.EndGame == EndGame.Defeat)
-            //{
-            //    endGame.text = "You lose !";
-            //}
+            if (args.EndGame == EndGame.Victory)
+            {
+                endGame.text = "You win !";
+            }
+            else if (args.EndGame == EndGame.Defeat)
+            {
+                endGame.text = "You lose !";
+            }
         }
 
         // Start is called before the first frame update

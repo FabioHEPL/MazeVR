@@ -9,16 +9,15 @@ namespace MazeVR.Client
 {
     public class ClientNetworkGame : NetworkBehaviour
     {
-        [SerializeField]
-        private ClientGame game;
+
 
         public event Action Connected;
-        public event Action Started;
-        public event Action Ended;
+        public event EventHandler<StartedArgs> Started;
+        public event EventHandler<EndedArgs> Ended;
 
         private void Awake()
         {
-            game.gameObject.SetActive(false);
+            //game.gameObject.SetActive(false);
         }
 
         private void Start()
@@ -31,47 +30,65 @@ namespace MazeVR.Client
             switch (message.address)
             {
                 case "Connected":
-                    this.OnConnected();
+                    this.OnConnected(message);
                     break;
                 case "Started":
-                    this.OnStarted();
+                    this.OnStarted(message);
                     break;
                 case "Ended":
-                    this.OnEnded();
+                    this.OnEnded(message);
                     break;
                 default:
                     break;
             }
 
-            //Debug.Log($"Game : {message}");
 
-            //// detecter si victoire ou defaite
-            //int endGameInt = message.GetInt(1);
-
-            //EndGame endGame = (EndGame)endGameInt;
-
-            //// 0 : defaite, 1 : victoire
-            //game.End(endGame);
         }
 
-        private void OnStarted()
+        private void OnStarted(OscMessage message)
         {
             Debug.Log("Game Started !");
-            this.Started?.Invoke();
-   
+            this.Started?.Invoke(this, new StartedArgs());   
         }
 
-        private void OnConnected()
+        private void OnConnected(OscMessage message)
         {
             Debug.Log($"Game Connected !");
             this.Connected?.Invoke();
           
         }
 
-        private void OnEnded()
+        private void OnEnded(OscMessage message)
         {
+            // detecter si victoire ou defaite
+            int endGameInt = message.GetInt(1);
+
+            EndGame endGame = (EndGame)endGameInt;
+
             Debug.Log($"Game Ended !");
-            this.Connected?.Invoke();
+            this.Ended?.Invoke(this, new EndedArgs(endGame));
+        }
+    }
+
+    public class EndedArgs : EventArgs
+    {
+        private EndGame endGame;
+        public EndGame EndGame => this.endGame;
+
+        public EndedArgs(EndGame endGame)
+        {
+            this.endGame = endGame;
+        }
+    }
+
+    public class StartedArgs : EventArgs
+    {
+        //private EndGame endGame;
+        //public EndGame EndGame => this.endGame;
+
+        public StartedArgs()
+        {
+            //this.endGame = endGame;
         }
     }
 }

@@ -1,24 +1,14 @@
 fileFormatVersion: 2
-guid: d79defc19ca5ef745a0d45ce2dc074bb
+guid: 97dd0086217af984c946b37b3d162ef0
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
-      74: 2887388021026487561
-    second: Room|RoomAction
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Floor_Tiles
-    second: {fileID: 2100000, guid: 265f54a04b4ee5841bba8930f3f03bff, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tileable_A
-    second: {fileID: 2100000, guid: 1bb170a8f7045dd48aa1a7870e9bc967, type: 2}
+      74: -4666607095785007056
+    second: Door_Rig|Door_Open
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -45,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Room|RoomAction
-      takeName: Room|RoomAction
-      internalID: 2887388021026487561
+      name: Door_Rig|Door_Open
+      takeName: Door_Rig|Door_Open
+      internalID: -4666607095785007056
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 240
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -109,7 +99,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 3

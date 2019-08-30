@@ -52,7 +52,6 @@ namespace MazeVR.Server
 
         protected void OnTick()
         {
-            Debug.Log("Tick");
             this.Tick?.Invoke();
             this.OnUpdated(new NetworkBehaviourUpdatedArgs("Tick", currentSeconds));
         }

@@ -41,21 +41,18 @@ namespace MazeVR.Client
                 default:
                     break;
             }
-
-
-        }
-
-        private void OnStarted(OscMessage message)
-        {
-            Debug.Log("Game Started !");
-            this.Started?.Invoke(this, new StartedArgs());   
         }
 
         private void OnConnected(OscMessage message)
         {
             Debug.Log($"Game Connected !");
-            this.Connected?.Invoke();
-          
+            this.Connected?.Invoke();          
+        }
+
+        private void OnStarted(OscMessage message)
+        {
+            Debug.Log("Game Started !");
+            this.Started?.Invoke(this, new StartedArgs());
         }
 
         private void OnEnded(OscMessage message)

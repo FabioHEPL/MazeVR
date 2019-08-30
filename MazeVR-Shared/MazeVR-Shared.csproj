@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,34 +31,30 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MazeVR-Client">
-      <HintPath>Library\MazeVR-Client.dll</HintPath>
-    </Reference>
-    <Reference Include="MazeVR-Server">
-      <HintPath>Library\MazeVR-Server.dll</HintPath>
-    </Reference>
-    <Reference Include="netstandard">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.1.14f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\netstandard.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.1.14f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.1.14f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Shared\CompositeMap.cs" />
     <Compile Include="Shared\CompositeNetworkBehaviour.cs" />
     <Compile Include="Shared\CompositeNetworkMob.cs" />
-    <Compile Include="Shared\NetworkLevel.cs" />
+    <Compile Include="Shared\Utils.cs" />
+    <None Include="Shared\NetworkLevel.cs" />
+    <Compile Include="Shared\EndGame.cs" />
+    <Compile Include="Shared\Game.cs" />
+    <Compile Include="Shared\NetworkDebug.cs" />
     <Compile Include="Shared\NetworkRotation.cs" />
     <Compile Include="Shared\NetworkPosition.cs" />
     <Compile Include="Shared\RemoteMobFactory.cs" />

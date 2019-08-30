@@ -145,7 +145,7 @@ namespace MazeVR.Shared
             // latest time for this socket to be closed
             if (IsOpen())
             {
-                Debug.Log("closing udpclient listener on port " + localPort);
+                //Debug.Log("closing udpclient listener on port " + localPort);
                 Close();
             }
 
@@ -161,7 +161,7 @@ namespace MazeVR.Shared
             try
             {
                 Sender = new UdpClient();
-                Debug.Log("Opening OSC listener on port " + localPort);
+                //Debug.Log("Opening OSC listener on port " + localPort);
 
                 IPEndPoint listenerIp = new IPEndPoint(IPAddress.Any, localPort);
                 Receiver = new UdpClient(listenerIp);
@@ -407,6 +407,24 @@ namespace MazeVR.Shared
         public string outIP = "127.0.0.1";
         public int outPort = 6161;
 
+        public string OutIP
+        {
+            get { return outIP; }
+            set
+            {
+                this.outIP = value;
+
+                Reset();
+
+            }
+        }
+
+        public void Reset()
+        {
+            Close();
+            Awake();
+        }
+
         private UDPPacketIO OscPacketIO;
         Thread ReadThread;
         private bool ReaderRunning;
@@ -613,7 +631,7 @@ namespace MazeVR.Shared
 
             catch (Exception e)
             {
-                Debug.Log("ThreadAbortException" + e);
+                Debug.LogWarning("ThreadAbortException" + e);
             }
             finally
             {

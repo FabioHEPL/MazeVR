@@ -10,31 +10,39 @@ namespace MazeVR.Shared
     {
         // starting entities etc.
         [SerializeField]
-        private Network network;
+        protected Network network;
 
         [SerializeField]
-        private List<NetworkBehaviour> toRegister;
+        protected List<NetworkBehaviour> toRegister;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             network = this.GetComponent<Network>();
-            toRegister.Insert(0, this);
+            //toRegister.Insert(0, this);
         }
 
-        private void Start()
+        protected virtual void Start()
         {
-            RegisterAll();
+            this.RegisterSelf();
+            //this.RegisterAll();
         }
 
-        private void RegisterAll()
+        protected void RegisterSelf()
         {
+            network.TryRegister(this, 0);
+        }
+
+        protected void RegisterAll()
+        {
+            //RegisterSelf();
+
             for (int i = 0; i < toRegister.Count; i++)
-            {
+            {                
                 Register(i);
             }
         }
 
-        private void Register(int tableId)
+        protected void Register(int tableId)
         {
             int registeredId = network.Register(toRegister[tableId]);
 
@@ -47,7 +55,7 @@ namespace MazeVR.Shared
         public override void Synchronize(OscMessage message)
         {
             int registeredId = message.GetInt(1);
-            int tableId = message.GetInt(2);
+            int tableId = message.GetInt(2);            
 
             network.TryRegister(toRegister[tableId], registeredId);
         }

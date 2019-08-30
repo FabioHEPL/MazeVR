@@ -1,9 +1,8 @@
-﻿
-using System;
+﻿using System;
 
 namespace MazeVR.Server
 {
-    public interface Player
+    public interface IPlayer
     {
         event EventHandler<DeathArgs> Death;
     }

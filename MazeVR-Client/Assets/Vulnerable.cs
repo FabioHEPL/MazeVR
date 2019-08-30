@@ -12,6 +12,9 @@ namespace MazeVR.Client
         [SerializeField]
         private Health health;
 
+        [SerializeField]
+        private string toTag = "Default";
+
         // Start is called before the first frame update
         void Start()
         {
@@ -26,21 +29,20 @@ namespace MazeVR.Client
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Weapon"))
+            Debug.Log($"{this.name} collided with {other.name}");
+            if (other.CompareTag(toTag))
             {
+                Debug.Log("hit from weapon !");
                 Weapon weapon = other.GetComponent<Weapon>();
-                OnWeaponHit(weapon);
+                OnHit(weapon);
             }
         }
 
-        private void OnWeaponHit(Weapon weapon)
+        private void OnHit(Weapon weapon)
         {
+            Debug.Log($"decrease {weapon.Damage}");
             health.Decrease(weapon.Damage);
-
-        }
-
-        private void OnCollisinEnter(Collider other)
-        {
+            this.Hit?.Invoke();
 
         }
     }

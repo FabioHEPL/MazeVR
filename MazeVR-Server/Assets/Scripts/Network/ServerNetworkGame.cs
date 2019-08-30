@@ -61,15 +61,15 @@ namespace MazeVR.Server
 
         private void LoseCondition_Fulfilled(object sender, FulfilledArgs e)
         {
-            //OnGameEnded()
+            OnGameEnded(this, new ServerGame.EndedArgs());
         }
 
         private void WinCondition_Fulfilled(object sender, FulfilledArgs e)
         {
-            throw new NotImplementedException();
+            OnGameEnded(this, new ServerGame.EndedArgs());
         }
 
-        private void Game_Ended(object sender, ServerGame.EndedArgs e)
+        private void OnGameEnded(object sender, ServerGame.EndedArgs e)
         {
             // TODO:
             // regarder si le jeu s'est terminé en defaite ou victoire pour le joueur

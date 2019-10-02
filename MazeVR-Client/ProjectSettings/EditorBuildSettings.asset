@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Max_Maze_Proto.unity
-    guid: 573ee2023e21e264692ebce49b52e13f
+    path: Assets/Scenes/Max_Proto_3.unity
+    guid: 5b9ea91df1c77f04a8d151ce07920a7c
   m_configObjects: {}

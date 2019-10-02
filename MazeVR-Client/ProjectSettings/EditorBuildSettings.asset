@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Max_Maze_Proto.unity
+    guid: 573ee2023e21e264692ebce49b52e13f
   m_configObjects: {}

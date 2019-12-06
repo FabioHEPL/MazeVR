@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MazeVR.Client
+namespace MazeVR.Server
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "Custom Input", menuName = "Custom Inputs/Custom Input")]
     public class CustomInput : ScriptableObject
     {
         public KeyCode key;
         public Operation operation;
 
-        public void Process()
+        public virtual void Process()
         {
             if (Input.GetKeyDown(key))
                 operation.Execute();

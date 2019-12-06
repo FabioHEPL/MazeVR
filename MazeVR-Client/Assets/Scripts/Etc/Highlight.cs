@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace MazeVR.Client
+namespace MazeVR.Server
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "Highlight", menuName = "Effects/Highlight")]
     public class Highlight : ScriptableObject
     {
         [SerializeField]
@@ -34,7 +34,6 @@ namespace MazeVR.Client
         {
             this.material = material;
         }
-
     }
-
 }
+

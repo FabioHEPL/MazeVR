@@ -2,12 +2,23 @@
 
 namespace MazeVR.Server
 {
-    public interface Player
+    public interface IPlayer
     {
-        void DealDamage(int amount);
         event EventHandler<DeathArgs> Death;
-        int Health { get; }
     }
 
- 
+    //public class DeathArgs : EventArgs
+    //{
+
+    //}
+
+    public interface ITimer
+    {
+        event EventHandler<TimeOutArgs> TimeOut;
+
+    }
+
+    public class TimeOutArgs : EventArgs
+    {
+    }
 }

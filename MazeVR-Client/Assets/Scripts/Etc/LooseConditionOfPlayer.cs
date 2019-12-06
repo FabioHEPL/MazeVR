@@ -6,29 +6,20 @@ namespace MazeVR.Server
 {
     public class LooseConditionOfPlayer : MonoBehaviour
     {
-        [SerializeField]
-        private FakePlayer player;
-
-        //[SerializeField] int lifePointCharater = 1;
+        [SerializeField] int lifePointCharater = 1;
         [SerializeField] GameObject playerLose;
 
-
-        private void OnEnable()
+        void Update()
         {
-            player.Death += Player_Death;
+            if (lifePointCharater == 0)
+            {
+                playerLose.SetActive(true);
+            }
 
-            player.DealDamage(10);
-        }
-
-        private void OnDisable()
-        {
-            player.Death -= Player_Death;
-        }
-
-        private void Player_Death(object sender, DeathArgs e)
-        {
-            Debug.Log("Le joueur est mort");
-            playerLose.SetActive(true);
+            if (lifePointCharater < 0)
+            {
+                lifePointCharater = 0;
+            }
         }
     }
 }
